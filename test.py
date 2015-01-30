@@ -5,7 +5,7 @@ Created on Jan 29, 2015
 @authors: Jose Duran, Moisés Ackerman, Carlos Spaggiari
 '''
 import unittest
-from Marzullo import parking
+from marzullo import parking
 
 class Test(unittest.TestCase):
     def testName(self):
@@ -13,16 +13,15 @@ class Test(unittest.TestCase):
 
     def testNoReservations(self):
         myParking = parking(1)
-        self.assertTrue(myParking.fits("0900", "1500"))
+        self.assertTrue(myParking.fits(myParking.occupation))
 
     def testNoSpotParking(self):
         myParking = parking(0)
-        self.assertFalse(myParking.fits("0900", "1500"))
+        self.assertFalse(myParking.addReservation("0900", "1500"))
 
     def testTenSpotsOneReservation(self):
         myParking = parking(10)
-        myParking.addReservation("0900","1800")
-        self.assertTrue(myParking.fits("0900", "1500"))
+        self.assertTrue(myParking.addReservation("0900", "1500"))
 
     def testNoAceptaAdd(self):
         myParking = parking(10)
@@ -49,7 +48,7 @@ class Test(unittest.TestCase):
         myParking.addReservation("1200","1800")
         myParking.addReservation("1000","1800")
         myParking.addReservation("1000","1800")
-        self.assertFalse(myParking.fits("0900", "1500"))
+        self.assertFalse(myParking.addReservation("0900", "1500"))
 
     def testFiveSpotsSixReservation(self):
         myParking = parking(5)
@@ -59,7 +58,7 @@ class Test(unittest.TestCase):
         myParking.addReservation("1200","1800")
         myParking.addReservation("1000","1800")
         myParking.addReservation("1000","1800")
-        self.assertFalse(myParking.fits("0900", "1500"))
+        self.assertFalse(myParking.addReservation("0900", "1500"))
 
     def testFiveSpotsSixReservationNoOverlapping(self):
         myParking = parking(5)
@@ -69,7 +68,7 @@ class Test(unittest.TestCase):
         myParking.addReservation("1200","1800")
         myParking.addReservation("1000","1800")
         myParking.addReservation("0600","1000")
-        self.assertFalse(myParking.fits("0900", "1500"))
+        self.assertTrue(myParking.addReservation("0900", "1200"))
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
