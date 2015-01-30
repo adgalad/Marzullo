@@ -11,9 +11,9 @@ class Test(unittest.TestCase):
     def testName(self):
         pass
 
-    def testNoReservations(self):
+    def testOneReservation(self):
         myParking = parking(1)
-        self.assertTrue(myParking.fits(myParking.occupation))
+        self.assertTrue(myParking.addReservation("0900", "1500"))
 
     def testNoSpotParking(self):
         myParking = parking(0)
