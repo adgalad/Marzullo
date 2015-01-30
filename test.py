@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 '''
 Created on Jan 29, 2015
-@authors: Jose Duran, Moisés Ackerman, Carlos Spaggiari
+@authors: Jose Duran, Mois��s Ackerman, Carlos Spaggiari
 '''
 import unittest
 from marzullo import parking
