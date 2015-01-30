@@ -3,5 +3,5 @@ class parking:
         self.lista = []
         self.capacity = capacity
 
-    def fits(self):
-        return True
+    def fits(self, startTime, endTime):
+        return self.capacity > 0

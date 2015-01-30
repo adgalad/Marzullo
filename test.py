@@ -11,12 +11,12 @@ class Test(unittest.TestCase):
         pass
 
     def testNoReservations(self):
-        myParking = parking(0)
-        self.assertTrue(myParking.fits())
+        myParking = parking(1)
+        self.assertTrue(myParking.fits(10, 15))
 
-    def testFirstReservation(self):
-        myParking = parking(10)
-        self.assertTrue(myParking.fits())
+    def testNoSpotParking(self):
+        myParking = parking(0)
+        self.assertFalse(myParking.fits(10, 15))
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
