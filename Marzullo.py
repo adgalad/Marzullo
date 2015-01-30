@@ -13,6 +13,9 @@ class parking:
         self.occupation+=[tupla1,tupla2]
 
     def fits(self):
-        if self.capacity >= len(self.occupation)/2:
-            return True
-        return False
+        count = 0
+        for r in sorted(self.occupation):
+            count += r[1]
+            if count > self.capacity:
+                return False
+        return True

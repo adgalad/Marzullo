@@ -19,7 +19,7 @@ class Test(unittest.TestCase):
         myParking = parking(0)
         myParking.addReservation("0900","1800")
         self.assertFalse(myParking.fits())
-        
+
     def testTenSpotsOneReservation(self):
         myParking = parking(10)
         myParking.addReservation("0900","1800")
