@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 '''
 Created on Jan 29, 2015
 @authors: Jose Duran, Moisés Ackerman, Carlos Spaggiari
@@ -17,6 +18,10 @@ class Test(unittest.TestCase):
     def testNoSpotParking(self):
         myParking = parking(0)
         self.assertFalse(myParking.fits(10, 15))
+        
+    def testTenSpotsOneReservation(self):
+        myParking = parking(10)
+        self.assertTrue(myParking.fits(10, 15))
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

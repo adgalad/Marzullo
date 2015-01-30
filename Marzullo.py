@@ -4,4 +4,6 @@ class parking:
         self.capacity = capacity
 
     def fits(self, startTime, endTime):
-        return self.capacity > 0
+        if self.capacity > 0:
+            return True
+        return False
