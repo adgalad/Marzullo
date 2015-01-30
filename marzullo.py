@@ -1,3 +1,5 @@
+from operator import itemgetter
+
 class parking:
     def __init__(self, capacity):
         self.occupation = []
@@ -17,7 +19,7 @@ class parking:
 
     def fits(self, startTuple, endTuple):
         count = 0
-        for r in sorted(self.occupation + [startTuple, endTuple]):
+        for r in sorted((self.occupation + [startTuple, endTuple]),key=itemgetter(0,1)):
             count+=r[1]
             if(count>self.capacity):
                 return False
