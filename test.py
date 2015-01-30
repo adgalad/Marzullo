@@ -13,17 +13,16 @@ class Test(unittest.TestCase):
 
     def testNoReservations(self):
         myParking = parking(1)
-        self.assertTrue(myParking.fits())
+        self.assertTrue(myParking.fits("0900", "1500"))
 
     def testNoSpotParking(self):
         myParking = parking(0)
-        myParking.addReservation("0900","1800")
-        self.assertFalse(myParking.fits())
+        self.assertFalse(myParking.fits("0900", "1500"))
 
     def testTenSpotsOneReservation(self):
         myParking = parking(10)
         myParking.addReservation("0900","1800")
-        self.assertTrue(myParking.fits())
+        self.assertTrue(myParking.fits("0900", "1500"))
 
     def testNoAceptaAdd(self):
         myParking = parking(10)
@@ -50,7 +49,7 @@ class Test(unittest.TestCase):
         myParking.addReservation("1200","1800")
         myParking.addReservation("1000","1800")
         myParking.addReservation("1000","1800")
-        self.assertTrue(myParking.fits())
+        self.assertFalse(myParking.fits("0900", "1500"))
 
     def testFiveSpotsSixReservation(self):
         myParking = parking(5)
@@ -60,7 +59,7 @@ class Test(unittest.TestCase):
         myParking.addReservation("1200","1800")
         myParking.addReservation("1000","1800")
         myParking.addReservation("1000","1800")
-        self.assertFalse(myParking.fits())
+        self.assertFalse(myParking.fits("0900", "1500"))
 
     def testFiveSpotsSixReservationNoOverlapping(self):
         myParking = parking(5)
@@ -70,7 +69,7 @@ class Test(unittest.TestCase):
         myParking.addReservation("1200","1800")
         myParking.addReservation("1000","1800")
         myParking.addReservation("0600","1000")
-        self.assertTrue(myParking.fits())
+        self.assertFalse(myParking.fits("0900", "1500"))
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

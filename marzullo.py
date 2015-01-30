@@ -12,10 +12,11 @@ class parking:
         tupla2 = (endTimeVal,-1)
         self.occupation+=[tupla1,tupla2]
 
-    def fits(self):
+    def fits(self, startTime, endTime):
+        startTimeVal=int(startTime)
+        endTimeVal=int(endTime)
         count = 0
         for r in sorted(self.occupation):
-            count += r[1]
-            if count > self.capacity:
-                return False
-        return True
+            if startTimeVal <= r[0] < endTimeVal:
+                count += r[1]
+        return count < self.capacity
