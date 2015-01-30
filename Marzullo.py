@@ -1,5 +1,7 @@
-class reserva:
-    def __init__(self):
+class parking:
+    def __init__(self, capacity):
         self.lista = []
-    def validar(self):
+        self.capacity = capacity
+
+    def fits(self):
         return True

@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
 '''
 Created on Jan 29, 2015
-
-@author: Jose Daniel
+@authors: Jose Duran, Moisés Ackerman, Carlos Spaggiari
 '''
 import unittest
-from Marzullo import reserva
-
+from Marzullo import parking
 
 class Test(unittest.TestCase):
-
     def testName(self):
         pass
 
-    def testNoReserva(self):
-        reservas = reserva()
-        msg = 'no reservas'
-        self.assertEqual(True, reservas.validar(), msg)
+    def testNoReservations(self):
+        myParking = parking(0)
+        self.assertTrue(myParking.fits())
+
+    def testFirstReservation(self):
+        myParking = parking(10)
+        self.assertTrue(myParking.fits())
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
