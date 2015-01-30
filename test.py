@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 '''
 Created on Jan 29, 2015
 
@@ -8,7 +9,6 @@ from Marzullo import reserva
 
 
 class Test(unittest.TestCase):
-
 
     def testName(self):
         pass
