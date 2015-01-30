@@ -1,6 +1,6 @@
 class parking:
     def __init__(self, capacity):
-        self.lista = []
+        self.occupation = []
         self.capacity = capacity
 
     def fits(self, startTime, endTime):
